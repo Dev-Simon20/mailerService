@@ -5,7 +5,7 @@ const nodemailer=require('nodemailer');
 app.use(express.json());
 app.use(cors());
 
-enviarEmail= async(asunto,texto)=>{
+enviarEmail= async(asunto,texto,dest)=>{
    const config={
     host:'smtp.gmail.com',
     port:587,
@@ -16,7 +16,7 @@ enviarEmail= async(asunto,texto)=>{
    }
    const mensaje={
     from:'jeanpierks@gmail.con',
-    to:'jeanpierks6@gmail.com',
+    to:dest,
     subject:asunto,
     text:texto
    }
@@ -35,8 +35,9 @@ app.get('/',(req,res)=>{
 app.post('/',(req,res)=>{
     const dato=req.body;
     const asunto=dato.asunto;
+    const dest=dato.destinatario;
     const texto=`${dato.nombres}\n${dato.correo}\n${dato.telefono}\n${dato.mensaje}`;
-    enviarEmail(asunto,texto);
+    enviarEmail(asunto,texto,dest);
 })
 
 
