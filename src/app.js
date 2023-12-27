@@ -11,7 +11,7 @@ enviarEmail= async(asunto,texto,dest)=>{
     port:587,
     auth:{
         user:'jeanpierks6@gmail.com',
-        pass: 'mgsmrhnrcrtlbeqw'
+        pass: 'pyzfcrxtmiwcolln'
     }
    }
    const mensaje={
