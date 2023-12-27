@@ -36,8 +36,9 @@ app.post('/',(req,res)=>{
     const dato=req.body;
     const asunto=dato.asunto;
     const dest=dato.destinatario;
-    const texto=`${dato.nombres}\n${dato.correo}\n${dato.telefono}\n${dato.mensaje}`;
+    const texto=dato.mensaje;
     enviarEmail(asunto,texto,dest);
+   res.send('Datos Capturados');
 })
 
 
